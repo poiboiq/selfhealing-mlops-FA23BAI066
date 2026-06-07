@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Switch Traffic to Stable (Green)') {
+            steps {
+                sh '''
+                    set -eux
+                    kubectl patch service sentiment-api-service -p '{"spec":{"selector":{"app":"sentiment-api","slot":"green"}}}'
+                    kubectl get service sentiment-api-service -o yaml | grep -A 8 selector
+                    curl -fsS http://127.0.0.1:32500/health || true
+                '''
+            }
+        }
+    }
+}
