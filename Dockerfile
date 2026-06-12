@@ -14,7 +14,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip \
-    && pip install --no-cache-dir -r requirements.txt
+    && pip install --no-cache-dir --index-url https://download.pytorch.org/whl/cpu torch==2.3.0+cpu \
+    && sed '/^torch==/d' requirements.txt > /tmp/requirements-no-torch.txt \
+    && pip install --no-cache-dir -r /tmp/requirements-no-torch.txt
 
 # Pre-cache the HuggingFace model in the image. This prevents slow or failed
 # runtime downloads during Jenkins tests and Kubernetes startup.
