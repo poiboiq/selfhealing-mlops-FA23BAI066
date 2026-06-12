@@ -20,15 +20,15 @@ python3 configure_placeholders.py
 
 It will replace:
 
-- `YOUR_DOCKERHUB_USERNAME`
-- `YOUR_EC2_PUBLIC_IP`
-- `YOUR_JENKINS_USERNAME`
-- `YOUR_JENKINS_API_TOKEN`
+- `fa23bai066`
+- `35.154.192.217`
+- `admin`
+- `1105b128c1088f875d7509e504cdf0414d`
 
 Do not submit while any of these remain:
 
 ```bash
-grep -R "YOUR_" . --exclude-dir=.git
+grep -R "UNREPLACED_PLACEHOLDER" . --exclude-dir=.git
 ```
 
 ## GitHub repository

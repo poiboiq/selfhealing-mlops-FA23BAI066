@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: sentiment-api
-          image: YOUR_DOCKERHUB_USERNAME/sentiment-api:unstable
+          image: fa23bai066/sentiment-api:unstable
           imagePullPolicy: Always
           ports:
             - containerPort: 5000

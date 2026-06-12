@@ -3,10 +3,10 @@ import sys
 
 ROOT = Path(__file__).resolve().parent
 REPLACEMENTS = {
-    "YOUR_DOCKERHUB_USERNAME": input("DockerHub username: ").strip(),
-    "YOUR_EC2_PUBLIC_IP": input("EC2 public IP: ").strip(),
-    "YOUR_JENKINS_USERNAME": input("Jenkins username: ").strip(),
-    "YOUR_JENKINS_API_TOKEN": input("Jenkins API token: ").strip(),
+    "fa23bai066": input("DockerHub username: ").strip(),
+    "35.154.192.217": input("EC2 public IP: ").strip(),
+    "admin": input("Jenkins username: ").strip(),
+    "1105b128c1088f875d7509e504cdf0414d": input("Jenkins API token: ").strip(),
 }
 
 missing = [key for key, value in REPLACEMENTS.items() if not value]

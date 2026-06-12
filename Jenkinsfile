@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB_USERNAME = 'YOUR_DOCKERHUB_USERNAME'
+        DOCKERHUB_USERNAME = 'fa23bai066'
         DOCKERHUB_CREDENTIALS_ID = 'dockerhub-creds'
         IMAGE_NAME = 'sentiment-api'
     }
@@ -18,7 +18,7 @@ pipeline {
             steps {
                 sh '''
                     set -eux
-                    test "${DOCKERHUB_USERNAME}" != "YOUR_DOCKERHUB_USERNAME"
+                    test -n "${DOCKERHUB_USERNAME}"
                     docker network inspect sentiment-test-net >/dev/null 2>&1 || docker network create sentiment-test-net
                     docker rm -f sentiment-app || true
                     docker build -t ${DOCKERHUB_USERNAME}/${IMAGE_NAME}:unstable .
@@ -92,7 +92,7 @@ pipeline {
             steps {
                 sh '''
                     set -eux
-                    sed -i "s|YOUR_DOCKERHUB_USERNAME|${DOCKERHUB_USERNAME}|g" k8s/*.yaml
+                    sed -i "s|fa23bai066|${DOCKERHUB_USERNAME}|g" k8s/*.yaml
                     kubectl apply -f k8s/pvc.yaml
                     kubectl apply -f k8s/blue-deployment.yaml
                     kubectl apply -f k8s/green-deployment.yaml
