@@ -1,1 +1,1 @@
-http://35.154.192.217:3000/d/mlops-sentiment-api-health/mlops-sentiment-api-health
+http://16.170.133.188:3000/d/mlops-sentiment-api-health/mlops-sentiment-api-health

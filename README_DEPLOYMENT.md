@@ -21,7 +21,7 @@ python3 configure_placeholders.py
 It will replace:
 
 - `fa23bai066`
-- `35.154.192.217`
+- `16.170.133.188`
 - `admin`
 - `1105b128c1088f875d7509e504cdf0414d`
 
